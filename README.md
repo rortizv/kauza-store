@@ -1,5 +1,15 @@
 # KauzaStore
 
+This is an e-commerce built with last features of Angular 17.
+
+How to run
+1. Clone repo: ```git clone https://github.com/rortizv/kauza-store.git```
+2. Use node v18 or higher
+3. Run ```npm i```
+4. Run ```ng serve -o``` to run the project and open in browser when ready
+
+
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.2.
 
 ## Development server
