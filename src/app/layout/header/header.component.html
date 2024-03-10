@@ -5,11 +5,14 @@
   </a>
   <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
     <a class="mr-5 hover:text-gray-900" [routerLink]="['/products']">Products</a>
-    <a [routerLink]="['/checkout']" ><img title="Go to Checkout" src="../../../assets/svg/shopping-cart.svg" alt="shopping-cart"></a>
+    <a [routerLink]="['/checkout']" (mouseenter)="showCart.set(true)" (mouseleave)="showCart.set(false)">
+      <img title="Go to Checkout" src="../../../assets/svg/shopping-cart.svg" alt="shopping-cart">
+    </a>
   </nav>
-  <!-- <button ></button> -->
-  <!-- <div class="absolute right-0 z-30 w-48 p-2 mt-2 text-white rounded-sm bg-slate-400">
-      <div class="flex items-center justify-between">
+  @if (showCart()) {
+    <div [ngClass]="{'show-cart-animation': showCart()}"
+        class="absolute right-5 top-2 z-30 w-48 p-2 mt-2 text-white rounded-sm bg-slate-400 shadow-lg">
+      <div class="flex flex-col items-start justify-between">
         <span>3 - shirts</span>
         <span>3 - shirts</span>
       </div>
@@ -18,5 +21,6 @@
         Total:
         <span class="not-italic font-bold">Total $554</span>
       </div>
-    </div> -->
+    </div>
+  }
 </div>
