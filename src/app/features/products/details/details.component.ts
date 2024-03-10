@@ -2,6 +2,7 @@ import { CurrencyPipe } from '@angular/common';
 import { Component, EventEmitter, Input, OnInit, Output, Signal, inject, input } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { Product } from '@shared/models/product.interface';
+import { CartStore } from '@shared/store/shopping-cart.store';
 import { HeaderComponent } from 'app/layout/header/header.component';
 import { ProductsService } from 'app/services/products.service';
 
@@ -21,13 +22,14 @@ export default class DetailsComponent implements OnInit {
 
   private readonly productsService = inject(ProductsService);
   private readonly _sanitizer = inject(DomSanitizer);
+  cartStore = inject(CartStore);
 
   ngOnInit(): void {
     this.product = this.productsService.getProductById(this.productId());
   }
 
   onAddtoCart(): void {
-    this.addtoCartEvent.emit(this.product());
+    this.cartStore.addToCart(this.product() as Product);
   }
 
   generateSVGStars(index: number): SafeHtml {
