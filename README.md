@@ -18,7 +18,8 @@ How to run
    c. To run the Stripe NodeJS server ```npm start```
    d. It should show ```Running on port 4242```
    e. In your Angular application, go to src/environments/environment.ts, the environment object should look like this:
-     ```export const environment = {
+     ```
+     export const environment = {
         apiURL: 'https://fakestoreapi.com',
         stripeAPIKey: 'YOUR_STRIPE_API_KEY',
         stripeServerURL: 'http://localhost:4242'
