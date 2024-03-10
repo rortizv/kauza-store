@@ -2,11 +2,29 @@
 
 This is an e-commerce built with last features of Angular 17.
 
+This project implements the last features of Angular 17:
+- Signals
+- Interceptor signal
+- RxJs operators to manipulate data and async.
+
 How to run
 1. Clone repo: ```git clone https://github.com/rortizv/kauza-store.git```
 2. Use node v18 or higher
 3. Run ```npm i```
 4. Run ```ng serve -o``` to run the project and open in browser when ready
+5. Run the Stripe-server to accept payment:
+   a. Open a terminal in ```stripe-server folder```
+   b. Run ```npm i```
+   c. To run the Stripe NodeJS server ```npm start```
+   d. It should show ```Running on port 4242```
+   e. In your Angular application, go to src/environments/environment.ts, the environment object should look like this:
+     ```export const environment = {
+        apiURL: 'https://fakestoreapi.com',
+        stripeAPIKey: 'YOUR_STRIPE_API_KEY',
+        stripeServerURL: 'http://localhost:4242'
+      };```
+
+
 
 
 
