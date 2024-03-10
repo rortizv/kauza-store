@@ -1,0 +1,26 @@
+img {
+  width: 30px;
+  height: auto;
+}
+
+a {
+  cursor: pointer;
+}
+
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+.show-cart-animation {
+  animation: slideDown 0.3s ease-in-out forwards;
+}
