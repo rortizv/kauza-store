@@ -15,13 +15,13 @@
         </svg>
         <span class="absolute right-2 top-1 text-sm font-bold text-blue-500">{{cartStore.productsCount()}}</span>
       </a>
-      @if (showCart()) {
+      @if (showCart() && cartStore.productsCount()) {
         <div [ngClass]="{'show-cart-animation': showCart()}"
-            class="absolute right-5 top-2 z-30 w-48 p-2 mt-2 text-white rounded-sm bg-slate-400 shadow-lg">
+            class="absolute right-5 top-2 z-30 w-60 p-2 mt-2 text-white rounded-sm bg-slate-400 shadow-lg">
           <div class="flex flex-col items-start justify-between">
             @for (cartProduct of cartStore.products(); track $index) {
               <div class="flex justify-between w-full">
-                <span>• {{cartProduct.quantity}} {{cartProduct.title}}</span>
+                <span>• {{cartProduct.quantity}} {{cartProduct.title | slice: 0:15}} {{cartProduct.subtotal || cartProduct.price | currency}}</span>
                 <hr class="my-4 border-gray-500 border-t-1" />
               </div>
             }
